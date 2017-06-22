@@ -24,6 +24,7 @@ class Printer{ // 일종의 틀, 이 틀로 여러 인스턴스를 찍어낸다.
 	String manufacture;//인스턴스 멤버 변수 
 	boolean isColorPrinter;
 	static int A = 0; //클래스변수, 클래스 내 모든 인스턴스가 공유하는 변수
+	final static int MAX_NO = 5;//상수, 재할당 불가
 	
 	public Printer(String manufacture, boolean isColorPrinter/*파라미터(지역변수라고 생각해야됨)*/){    //생성자함수(리턴 타입이 없다)**1
 		this.manufacture = manufacture;//쉐도잉 - 멤버변수가 지역변수에 의해 가려진다 
@@ -75,3 +76,14 @@ class Printer{ // 일종의 틀, 이 틀로 여러 인스턴스를 찍어낸다.
 }
 
 
+/*
+지역변수 - 함수내부(클래스 블록을 제외함) 블록내부의 변수
+인스턴스변수
+클래스변수 - static 한정자를 사용
+
+데이터 타입 - 기본형(primitive data type), 참조형(reference data type) 
+	기본형 - int, long, byte, double 등등
+	참조형 - class(interface 포함), 배열 
+
+명명규칙 - camel표기법으로 한다 소문자로시작(예 youLoveMe) 상수변수만 대문자로 시작 그리고 _사용(예 final static int MAX_NO = 5)
+*/
