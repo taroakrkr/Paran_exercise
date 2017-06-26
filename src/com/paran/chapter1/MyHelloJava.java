@@ -14,7 +14,7 @@ public class MyHelloJava {
 	public static void printMsg2(String msg){//클래스 함수
 		System.out.println(msg);
 	}
-	public static void main(String[] args){//static가 붙으면 클래스 변수/함수, 인스턴스화 없이 사용가능, 이 클래스를 통한 인스턴스에서는 공유된다
+	public static void main(String[] args){//static가 붙으면 클래스 변수/함수, 인스턴스 생성 없이 사용가능, 이 클래스를 통한 인스턴스에서는 공유된다
 		MyHelloJava obj = new MyHelloJava();//obj라는 변수에 인스턴스 생성문장
 		obj.printMsg("Hello");
 		//static 함수 내에서는 static멤버함수/변수만 사용가능
