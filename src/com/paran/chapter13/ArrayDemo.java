@@ -23,6 +23,11 @@ public class ArrayDemo{
 		bubbleSort(sortArr, false);
 		showArray(sortArr);
 		
+		int[][] doubleArr = new int[2][3];
+		System.out.println(doubleArr.length);//행의수  //1차원 열의수 2차원 행의수 3차원 면의수
+		System.out.println(doubleArr[0].length);//열의수
+		doubleArr[1] = new int[]{0,0,0,0,0,0};//2*3에서 마지막행만 열이6개, 이런식으로도 된다
+		
 	}
 
 	static void showArray(int[] array){
@@ -77,4 +82,6 @@ public class ArrayDemo{
 			}
 		}
 	}
+	
+	
 }
