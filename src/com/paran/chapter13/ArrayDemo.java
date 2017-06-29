@@ -1,7 +1,5 @@
 package com.paran.chapter13;
 
-import com.paran.chapter5.Student;
-
 public class ArrayDemo{
 	
 	public static void main(String[] args){
