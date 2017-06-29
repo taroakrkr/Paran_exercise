@@ -15,7 +15,13 @@ public class ArrayDemo{
 		
 		System.out.println("버블소트");
 		int[] sortArr = {6,8,4,2,5,1,3};
+		System.out.println("정렬전");
+		showArray(sortArr);
+		System.out.println("오름차순");
 		bubbleSort(sortArr, true);
+		showArray(sortArr);
+		System.out.println("내림차순");
+		bubbleSort(sortArr, false);
 		showArray(sortArr);
 		
 	}
