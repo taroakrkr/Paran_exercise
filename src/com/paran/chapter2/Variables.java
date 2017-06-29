@@ -31,7 +31,7 @@ final한정자  : 중요하여 수정불가능하게 할때 사용
 }
 
 class Person extends Animal{//애니멀 상속
-	public void breath(){//오버라이딩(상속의 오버로딩)
+	public void breath(){//오버라이딩(상속의 오버로딩) 인스턴스 함수만 오버라이딩가능 클래스함수는 ㄴㄴ
 		System.out.println("사람 숨쉬기");
 	}
 	public static void main(String[] arg){

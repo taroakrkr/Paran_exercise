@@ -2,7 +2,7 @@ package com.paran.chapter5;
 
 public class ControlStatementDemo {
 	public static void main(String[] args){
-		Student[] stuArr = new Student[3];//배열생성
+		Student[] stuArr = new Student[3];//배열생성, 인스턴스생성이아님 뒤에것도 생성자함수가 아님
 		/*
 		stuArr[0] = new Student();
 		stuArr[1] = new Student();
@@ -28,6 +28,7 @@ public class ControlStatementDemo {
 		for(Student stu : stuArr){//for each문
 			if(stu.getIsMilSer() ){
 				stu.showInfo();
+				//stu = new Student("a","a",true); for each문에서는 오류는 없으나 실제반영이 안되는 문장
 			}
 		}
 	}
