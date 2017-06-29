@@ -6,7 +6,7 @@ public class ArrayDemo{
 		int[] intArray = {1,2,3,4,5,6,7,8,9,10};
 		
 		System.out.println("인트배열");
-		showArray(intArray);
+		showArray(intArray); // 원래 이렇게 써줘야 된다 ArrayDemo.showArray(intArray);
 		
 		System.out.println("리버스함수 호출 후");
 		reverseArrayValue(intArray);
@@ -31,7 +31,7 @@ public class ArrayDemo{
 		}
 	}
 	
-	static void reverseArrayValue(int[] array){
+	static void reverseArrayValue(int[] array){/*
 		int[] temp = new int[array.length];
 
 		for(int i = 0; i < array.length; i++){
@@ -39,10 +39,20 @@ public class ArrayDemo{
 		}
 		for(int i = 0; i < array.length; i++){
 			array[i]=temp[i];
+		}*/
+		int temp = 0, front = 0, rear = array.length-1;
+		for(;front<array.length/2;front++,rear--){
+			temp=array[front];
+			array[front]=array[rear];
+			array[rear]=temp;
 		}
 
 	}
-	
+	/**
+	 * 버블소트 메소드
+	 * @param array int 배열
+	 * @param asc 오름차순 true 내림차순 false
+	 */
 	static void bubbleSort(int[] array, boolean asc){
 		int temp = 0;
 		if(asc){
