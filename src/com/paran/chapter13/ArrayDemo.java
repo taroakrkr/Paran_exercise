@@ -10,7 +10,6 @@ public class ArrayDemo{
 		
 		System.out.println("리버스함수 호출 후");
 		reverseArrayValue(intArray);
-		
 		showArray(intArray);
 		
 		System.out.println("버블소트");
