@@ -57,12 +57,12 @@ public class ClassInfo {
         	e.printStackTrace();
     	}
 	}
-	public static void ranking(List<Student> stuList){
+	public static void setRanking(List<Student> stuList){
 		for(int i=0; i<stuList.size(); i++){
-            stuList.get(i).setRank(1); //1등으로 초기화
+            stuList.get(i).setRank(1); //모두1등으로 초기화
            
             for (int j = 0; j < stuList.size(); j++) { //기준데이터와 나머지데이터비교                             
-                if(stuList.get(i).getScore()<stuList.get(j).getScore()){   //기준데이터가 나머지데이터라 비교했을때 적으면 rank[i] 카운트
+                if(stuList.get(i).getScore()<stuList.get(j).getScore()){   //기준데이터가 나머지데이터라 비교했을때 적으면 카운트
                     stuList.get(i).setRank(stuList.get(i).getRank()+1); //COUNT                 
                 }              
             }          
@@ -77,7 +77,7 @@ public class ClassInfo {
 	public static void main(String[] args){
 		List<Student> stuList = new ArrayList<Student>();
 		initStudent(stuList);
-		ranking(stuList);
+		setRanking(stuList);
 		showList(stuList);
 	}
 	
@@ -90,7 +90,7 @@ abstract class Student{
 	private String name;
 	private String stuId;
 	private int score;
-	private int rank;
+	private int rank=0;
 	public Student(String name, String stuId, int score){
 		this.setName(name);
 		this.setStuId(stuId);
@@ -131,7 +131,7 @@ class DomeStudent extends Student{//국내학생
 		this.resiId=resiId;
 	}
 	public void showInfo(){
-		System.out.println("내국인 name => "+ getName() + " stuId => "+getStuId()+" Id => "+resiId+" score = "+super.getScore()+" ranking = "+ super.getRank());
+		System.out.println("내국인 name => "+ getName() + " stuId => "+getStuId()+" resiId => "+resiId+" score = "+super.getScore()+" ranking = "+ super.getRank());
 	}
 }
 
@@ -142,6 +142,6 @@ class ForeStudent extends Student{//국외학생
 		this.foreignId=foreignId;
 	}
 	public void showInfo(){
-		System.out.println("외국인 name => "+ getName() + " stuId => "+getStuId()+" Id => "+foreignId+" score = "+super.getScore()+" ranking = "+ super.getRank());
+		System.out.println("외국인 name => "+ getName() + " stuId => "+getStuId()+" resiId => "+foreignId+" score = "+super.getScore()+" ranking = "+ super.getRank());
 	}
 }
