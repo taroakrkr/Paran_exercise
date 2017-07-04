@@ -13,13 +13,10 @@ public class ClassInfo {
 	public static void main(String[] args){
 		System.out.println("1반");
 		StuList class1 = new StuList("C:\\student1.txt");
-		class1.initStudent();
-		class1.setRanking();
 		class1.showList();
+		
 		System.out.println("2반");
 		StuList class2 = new StuList("C:\\student2.txt");
-		class2.initStudent();
-		class2.setRanking();
 		class2.showList();
 	}
 }
@@ -88,11 +85,11 @@ class ForeStudent extends Student{//국외학생
 
 class StuList{
 	List<Student> stuList = new ArrayList<Student>();
-	String dir;
 	public StuList(String dir){
-		this.dir = dir;
+		initStudent(dir);
+		setRanking();
 	}
-	public void initStudent(){
+	public void initStudent(String dir){
 		// 파일 변수 file을 만든다
 		File file = new File(dir);
     	try {
