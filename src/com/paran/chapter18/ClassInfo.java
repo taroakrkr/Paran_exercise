@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ClassInfo {
@@ -18,6 +20,15 @@ public class ClassInfo {
 		System.out.println("2반");
 		StuList class2 = new StuList("C:\\student2.txt");
 		class2.showList();
+		
+		
+		System.out.println("랭킹정렬");
+		class1.sortList();
+		class2.sortList();
+		System.out.println("1반");
+		class1.showList();
+		System.out.println("2반");
+		class2.showList();
 	}
 }
 
@@ -27,7 +38,7 @@ abstract class Student{
 	private String name;
 	private String stuId;
 	private int score;
-	private int rank=0;
+	private int rank=1;
 	public Student(String name, String stuId, int score){
 		this.name = name;
 		this.stuId = stuId;
@@ -138,8 +149,7 @@ class StuList{
 	}
 	public void setRanking(){
 		for(int i=0; i<stuList.size(); i++){
-            stuList.get(i).setRank(1); //모두1등으로 초기화
-           
+ 
             for (int j = 0; j < stuList.size(); j++) { //기준데이터와 나머지데이터비교                             
                 if(stuList.get(i).getScore()<stuList.get(j).getScore()){   //기준데이터가 나머지데이터라 비교했을때 적으면 카운트
                     stuList.get(i).setRank(stuList.get(i).getRank()+1); //COUNT                 
@@ -151,5 +161,14 @@ class StuList{
 		for(Student list : stuList){
 			list.showInfo();
 		}
+	}
+
+	public void sortList(){
+		Collections.sort(this.stuList, new Comparator<Student>(){
+			  public int compare(Student obj1, Student obj2)
+			  {
+			    return (obj1.getRank() < obj2.getRank()) ? -1: (obj1.getRank() > obj2.getRank()) ? 1:0 ;
+			  }
+		}); 
 	}
 }
