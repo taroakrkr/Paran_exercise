@@ -148,8 +148,8 @@ class StuList{
         } 
 	}
 	public void showList(){
-		for(int i=0; i<stuList.size(); i++){
-			stuList.get(i).showInfo();
+		for(Student list : stuList){
+			list.showInfo();
 		}
 	}
 }
