@@ -26,9 +26,9 @@ abstract class Student{
 	private int score;
 	private int rank=0;
 	public Student(String name, String stuId, int score){
-		this.setName(name);
-		this.setStuId(stuId);
-		this.setScore(score);
+		this.name = name;
+		this.stuId = stuId;
+		this.score = score;
 	}
 	public String getName() {
 		return name;
