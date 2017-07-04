@@ -131,7 +131,7 @@ class DomeStudent extends Student{//국내학생
 		this.resiId=resiId;
 	}
 	public void showInfo(){
-		System.out.println("내국인 name => "+ getName() + " stuId => "+getStuId()+" resiId => "+resiId+" score = "+super.getScore()+" ranking = "+ super.getRank());
+		System.out.println("내국인 name => "+ getName() + " stuId => "+getStuId()+" Id => "+resiId+" score = "+super.getScore()+" ranking = "+ super.getRank());
 	}
 }
 
@@ -142,6 +142,6 @@ class ForeStudent extends Student{//국외학생
 		this.foreignId=foreignId;
 	}
 	public void showInfo(){
-		System.out.println("외국인 name => "+ getName() + " stuId => "+getStuId()+" foreignId => "+foreignId+" score = "+super.getScore()+" ranking = "+ super.getRank());
+		System.out.println("외국인 name => "+ getName() + " stuId => "+getStuId()+" Id => "+foreignId+" score = "+super.getScore()+" ranking = "+ super.getRank());
 	}
 }
