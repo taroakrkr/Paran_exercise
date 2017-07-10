@@ -4,10 +4,11 @@ public class Bank {
 	public static void main(String[] args){
 		BankAccount mike = new BankAccount("Mike", "K01-456", "110-456-789",30000L);
 		long amount = 40000L;
-		System.out.println("예금액 : "+ mike.balance);
-		System.out.println("출금액 : "+ amount);
+		System.out.println("예금액 : "+ mike.balance+"원");
+		System.out.println("출금액 : "+ amount+"원");
 		try{
-			System.out.println("출금완료\n잔액 : "+mike.withdraw(amount));
+			System.out.println("출금완료\n출금 : "+mike.withdraw(amount)+"원");
+			System.out.println("잔액 : "+ mike.balance+"원");
 		}catch(BalanceNotEnoughException e){
 			System.out.println("출금실패\n잔액이 부족합니다");
 		}
@@ -23,7 +24,7 @@ class BankAccount {
 			throw new BalanceNotEnoughException("잔액 부족");
 		}
 		balance = balance - amount;
-		return balance;
+		return amount;
 	}
 
 	public void deposite(long amount){
