@@ -16,7 +16,7 @@ class ThrownDemo{
 	
 	public static void main(String[] args){
 		try{
-			method();//Checked Exception이라 반드시 Exception handling을 해줘야 한다
+			method();//Checked Exception이라 반드시 Exception handling을 해줘야 한다 아니면 또 throw 하던가
 		}catch(Exception e){
 			//do something
 		}
