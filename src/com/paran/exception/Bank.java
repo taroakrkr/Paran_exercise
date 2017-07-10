@@ -11,6 +11,8 @@ public class Bank {
 			System.out.println("잔액 : "+ mike.balance+"원");
 		}catch(BalanceNotEnoughException e){
 			System.out.println("출금실패\n잔액이 부족합니다");
+		}finally{
+			System.out.println("finally는 무조건 실행");
 		}
 	}
 }
