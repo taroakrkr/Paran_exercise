@@ -20,7 +20,7 @@ class BankAccount {
 	
 	public long withdraw(long amount) throws BalanceNotEnoughException{
 		if ( balance - amount < 0 ){
-			throw new BalanceNotEnoughException("잔액이 부족합니다");
+			throw new BalanceNotEnoughException("잔액 부족");
 		}
 		balance = balance - amount;
 		return balance;
