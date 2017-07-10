@@ -4,8 +4,8 @@ public class Bank {
 	public static void main(String[] args){
 		BankAccount mike = new BankAccount("Mike", "K01-456", "110-456-789",30000L);
 		long amount = 40000L;
-		System.out.println("예금액 : "+ mike.balance+"원");
-		System.out.println("출금액 : "+ amount+"원");
+		System.out.println(mike.getOwner().ownerName+"고객님 예금액 : "+ mike.balance+"원");
+		System.out.println("요청 출금액 : "+ amount+"원");
 		try{
 			System.out.println("출금완료\n출금 : "+mike.withdraw(amount)+"원");
 			System.out.println("잔액 : "+ mike.balance+"원");
