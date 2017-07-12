@@ -4,10 +4,6 @@ abstract class AnonymousInner {
 	public abstract void myMethod();
 }
 
-interface Message {
-String greet();
-}
-
 public class AnonymousDemo {
 	public static void main(String args[]) {
 		AnonymousInner inner = new AnonymousInner() {
