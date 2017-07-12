@@ -22,9 +22,13 @@ public class NestedDemo {
 		stuArr[2] = new Student("변사또", 55);
 		
 		checkGreaterThanFifty(stuArr, new IInterface(){ //함수형 프로그래밍
+			String msg = "msg";
 			public boolean test(Student stu){
 				if(stu.score >= 50) return true;
 				return false;
+			}
+			public void showInfo(){
+				System.out.println(msg);
 			}
 		});
 		
@@ -34,6 +38,7 @@ public class NestedDemo {
 		for (Student ele : stuArr){
 			if(tester.test(ele)){
 				System.out.println(ele.name);
+				//tester.showInfo(); IInterface에 노출되어 있지 않아서 불가능
 			}
 		}
 	}
