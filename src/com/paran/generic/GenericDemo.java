@@ -42,7 +42,7 @@ class FruitBox<T>{
 		return item;
 	}
 	public void showInfo(){
-		if(item instanceof Banana){
+		if(item instanceof Banana){ 
 			((Banana)item).showInfo();			
 		}
 	}
