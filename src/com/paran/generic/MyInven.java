@@ -7,20 +7,26 @@ import java.util.List;
 public class MyInven{
 	public static void main(String[] args){
 		Inventory<Item> player = new Inventory<Item>();
-		player.inventory.add(new Weapon("무기", "연습 용무기", "보통", 100, 1, 5, 0, false, 10, 50,"연습용무기다."));
-		player.inventory.add(new Armour("방어구", "연습용 방어구", "보통", 100, 1, 10, 3, false, 30,"연습용방어구다."));
-		player.inventory.add(new Accessory("악세서리", "연습용 악세서리", "레어", 500, 5, 10, 1, true, 10,"조금 희귀한 악세서리."));
-		player.inventory.add(new ConsumeItem("소비", "체력포션", "흔함", 3, 20, "체력을 회복시켜준다."));
-		player.inventory.add(new Material("재료", "철광석", "보통", 10, 5, "철광석이다. 재료로 사용가능하다."));
-		for(int i = 0 ; i < player.inventory.size() ; i++){
-			player.inventory.get(i).showInfo();
+		player.inventory1.add(new Weapon("무기", "연습 용무기", "보통", 100, 1, 5, 0, false, 10, 50,"연습용무기다."));
+		player.inventory1.add(new Armour("방어구", "연습용 방어구", "보통", 100, 1, 10, 3, false, 30,"연습용방어구다."));
+		player.inventory1.add(new Accessory("악세서리", "연습용 악세서리", "레어", 500, 5, 10, 1, true, 10,"조금 희귀한 악세서리."));
+		player.inventory2.add(new ConsumeItem("소비", "연습용 체력포션", "흔함", 3, 20, "체력을 회복시켜준다."));
+		player.inventory2.add(new Material("재료", "연습용 조합재료", "보통", 10, 5, "제작재료로 사용가능하다."));
+		System.out.println("인벤토리1");
+		for(int i = 0 ; i < player.inventory1.size() ; i++){
+			player.inventory1.get(i).showInfo();
+		}
+		System.out.println("인벤토리2");
+		for(int i = 0 ; i < player.inventory2.size() ; i++){
+			player.inventory2.get(i).showInfo();
 		}
 		//System.out.println(((Weapon) player.inventory.get(0)).getCritical());
 		
 	}
 }
 class Inventory<T extends Item>{
-	List<T> inventory = new ArrayList<T>();
+	List<T> inventory1 = new ArrayList<T>();
+	List<T> inventory2 = new ArrayList<T>();
 }
 
 abstract class Item{
@@ -179,7 +185,13 @@ class Accessory extends Equipment{
 	}
 	
 }
-class ConsumeItem extends Item{
+abstract class EtcItem extends Item{
+	public EtcItem(String itemType, String name, String rareness, int countItem, int price, String text) {
+		super(itemType, name, rareness, countItem, price, text);
+	}
+}
+
+class ConsumeItem extends EtcItem{
 	public ConsumeItem(String itemType, String name, String rareness, int countItem,int price, String text){
 		super(itemType, name,rareness, countItem, price, text);
 	}
@@ -190,7 +202,7 @@ class ConsumeItem extends Item{
 	}
 }
 
-class Material extends Item{
+class Material extends EtcItem{
 	public Material(String itemType, String name, String rareness, int countItem,int price, String text){
 		super(itemType, name,rareness, countItem, price, text);
 	}
