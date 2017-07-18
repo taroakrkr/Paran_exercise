@@ -7,28 +7,29 @@ import java.util.List;
 public class MyInven{
 	public static void main(String[] args){
 		Inventory<Item> player = new Inventory<Item>();
-		player.inventory.add(new Weapon("무기", "연습 용무기", "보통", 100, 1, 5, 0, false, 10, 50,"연습용무기다."));
-		player.inventory.add(new Armour("방어구", "연습용 방어구", "보통", 100, 1, 10, 3, false, 30,"연습용방어구다."));
-		player.inventory.add(new Accessory("악세서리", "연습용 악세서리", "레어", 500, 5, 10, 1, true, 10,"조금 희귀한 악세서리."));
-		player.inventory.add(new ConsumeItem("소비", "연습용 체력포션", "흔함", 3, 20, "체력을 회복시켜준다."));
-		player.inventory.add(new Material("재료", "연습용 조합재료", "보통", 10, 5, "제작재료로 사용가능하다."));
-		player.questInventory.add(new QuestItem("퀘스트", "튜토리얼 수료증", "보통", 1, "튜토리얼을 완료했다."));
-		player.questInventory.add(new QuestItem("퀘스트", "연습용 배달물품", "보통", 1, "교관NPC에게 배달해야할 물건."));
+		player.mainInven.add(new Weapon("무기", "연습 용무기", "보통", 100, 1, 5, 0, false, 10, 50,"연습용무기다."));
+		player.mainInven.add(new Armour("방어구", "연습용 방어구", "보통", 100, 1, 10, 3, false, 30,"연습용방어구다."));
+		player.mainInven.add(new Accessory("악세서리", "연습용 악세서리", "레어", 500, 5, 10, 1, true, 10,"조금 희귀한 악세서리."));
+		player.mainInven.add(new ConsumeItem("소비", "연습용 체력포션", "흔함", 3, 20, "체력을 회복시켜준다."));
+		player.mainInven.add(new Material("재료", "연습용 조합재료", "보통", 10, 5, "제작재료로 사용가능하다."));
+		player.questInven.add(new QuestItem("퀘스트", "튜토리얼 수료증", "보통", 1, "튜토리얼을 완료했다."));
+		player.questInven.add(new QuestItem("퀘스트", "연습용 배달물품", "보통", 1, "교관NPC에게 배달해야할 물건."));
 		System.out.println("인벤토리");
-		for(int i = 0 ; i < player.inventory.size() ; i++){
-			player.inventory.get(i).showInfo();
+		for(int i = 0 ; i < player.mainInven.size() ; i++){
+			player.mainInven.get(i).showInfo();
 		}
 		System.out.println("퀘스트 아이템 전용 인벤토리");
-		for(int i = 0 ; i < player.questInventory.size() ; i++){
-			player.questInventory.get(i).showInfo();
+		for(int i = 0 ; i < player.questInven.size() ; i++){
+			player.questInven.get(i).showInfo();
 		}
 		//System.out.println(((Weapon) player.inventory.get(0)).getCritical());
 		
 	}
 }
 class Inventory<T extends Item>{
-	List<T> inventory = new ArrayList<T>();
-	List<QuestItem> questInventory = new ArrayList<QuestItem>();
+	List<T> mainInven = new ArrayList<T>();
+	List<QuestItem> questInven = new ArrayList<QuestItem>();
+	//filter 기능,
 }
 
 abstract class Item{
