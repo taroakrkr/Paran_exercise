@@ -7,26 +7,28 @@ import java.util.List;
 public class MyInven{
 	public static void main(String[] args){
 		Inventory<Item> player = new Inventory<Item>();
-		player.inventory1.add(new Weapon("무기", "연습 용무기", "보통", 100, 1, 5, 0, false, 10, 50,"연습용무기다."));
-		player.inventory1.add(new Armour("방어구", "연습용 방어구", "보통", 100, 1, 10, 3, false, 30,"연습용방어구다."));
-		player.inventory1.add(new Accessory("악세서리", "연습용 악세서리", "레어", 500, 5, 10, 1, true, 10,"조금 희귀한 악세서리."));
-		player.inventory2.add(new ConsumeItem("소비", "연습용 체력포션", "흔함", 3, 20, "체력을 회복시켜준다."));
-		player.inventory2.add(new Material("재료", "연습용 조합재료", "보통", 10, 5, "제작재료로 사용가능하다."));
-		System.out.println("인벤토리1");
-		for(int i = 0 ; i < player.inventory1.size() ; i++){
-			player.inventory1.get(i).showInfo();
+		player.inventory.add(new Weapon("무기", "연습 용무기", "보통", 100, 1, 5, 0, false, 10, 50,"연습용무기다."));
+		player.inventory.add(new Armour("방어구", "연습용 방어구", "보통", 100, 1, 10, 3, false, 30,"연습용방어구다."));
+		player.inventory.add(new Accessory("악세서리", "연습용 악세서리", "레어", 500, 5, 10, 1, true, 10,"조금 희귀한 악세서리."));
+		player.inventory.add(new ConsumeItem("소비", "연습용 체력포션", "흔함", 3, 20, "체력을 회복시켜준다."));
+		player.inventory.add(new Material("재료", "연습용 조합재료", "보통", 10, 5, "제작재료로 사용가능하다."));
+		player.questInventory.add(new QuestItem("퀘스트", "튜토리얼 수료증", "보통", 1, "튜토리얼을 완료했다."));
+		player.questInventory.add(new QuestItem("퀘스트", "연습용 배달물품", "보통", 1, "교관NPC에게 배달해야할 물건."));
+		System.out.println("인벤토리");
+		for(int i = 0 ; i < player.inventory.size() ; i++){
+			player.inventory.get(i).showInfo();
 		}
-		System.out.println("인벤토리2");
-		for(int i = 0 ; i < player.inventory2.size() ; i++){
-			player.inventory2.get(i).showInfo();
+		System.out.println("퀘스트 아이템 전용 인벤토리");
+		for(int i = 0 ; i < player.questInventory.size() ; i++){
+			player.questInventory.get(i).showInfo();
 		}
 		//System.out.println(((Weapon) player.inventory.get(0)).getCritical());
 		
 	}
 }
 class Inventory<T extends Item>{
-	List<T> inventory1 = new ArrayList<T>();
-	List<T> inventory2 = new ArrayList<T>();
+	List<T> inventory = new ArrayList<T>();
+	List<QuestItem> questInventory = new ArrayList<QuestItem>();
 }
 
 abstract class Item{
@@ -210,5 +212,15 @@ class Material extends EtcItem{
 	@Override
 	void showInfo() {
 		System.out.println("타입 : "+super.getItemType() + " / 이름 : "+super.getName() + " / 희귀도 : "+super.getRareness() + " / 가격 : "+super.getPrice()+ " / 개수 : "+super.getCountItem() + " / 설명 : "+super.getText());
+	}
+}
+class QuestItem extends Item{
+	public QuestItem(String itemType, String name, String rareness, int countItem, String text){
+		super(itemType, name,rareness, countItem, 0, text);
+	}
+	
+	@Override
+	void showInfo() {
+		System.out.println("타입 : "+super.getItemType() + " / 이름 : "+super.getName() + " / 희귀도 : "+super.getRareness() + " / 개수 : "+super.getCountItem() + " / 설명 : "+super.getText());
 	}
 }
